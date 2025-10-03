@@ -1,35 +1,29 @@
 package Models;
 
+import Models.Constants.DirectionToGo;
+
 import java.util.List;
 
 public class Floor {
-    private int currentFloor;
-    private List<Display> display;
-    private DirectionToGo directionToGO;
+     private int floorNumber;
+     boolean upButtonPressed;
+     boolean downButtonPressed;
     //user wants to go to direction UP/DOWN
 
 
     public int getCurrentFloor() {
-        return currentFloor;
+        return floorNumber;
     }
 
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
+    public void setCurrentFloor(int floorNumber) {
+        this.floorNumber = floorNumber;
     }
 
-    public List<Display> getDisplay() {
-        return display;
+    public void upButtonPressed() {
+        upButtonPressed=true;
     }
 
-    public void setDisplay(List<Display> display) {
-        this.display = display;
-    }
-
-    public DirectionToGo getDirectionToGO() {
-        return directionToGO;
-    }
-
-    public void setDirectionToGO(DirectionToGo directionToGO) {
-        this.directionToGO = directionToGO;
+    public void DownButtonPressed(){
+        downButtonPressed=true;
     }
 }

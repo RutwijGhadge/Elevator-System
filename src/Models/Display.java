@@ -1,5 +1,7 @@
 package Models;
 
+import Models.Constants.LiftDirection;
+
 public class Display {
     private int currentLiftFloor;
     private LiftDirection direction; //Current Direction of Lift

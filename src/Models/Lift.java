@@ -1,88 +1,50 @@
 package Models;
 
-import java.awt.*;
+import Models.Constants.DoorStatus;
+import Models.Constants.LiftDirection;
+import Models.Constants.LiftStatus;
+
 import java.util.List;
 
 public class Lift {
     private int id;
-    private Display display;
-    private int currentWeightInLift;
-    private Boolean fanSwitch;
-    private Boolean lightSwitch;
-    private Boolean alarmSwitch;
-    private List<Button> buttonList;
-    private DoorStatus doorStatus;
-    private LiftStatus liftStatus;
+    private int currentFloor;
+    private LiftDirection liftDirection;
+    private double capacity;
+    private boolean doorStatus;
+    private List<Request>requestList;//Internal Request (Executed from Inside the Lift)
 
-    public LiftStatus getLiftStatus() {
-        return liftStatus;
-    }
-
-    public void setLiftStatus(LiftStatus liftStatus) {
-        this.liftStatus = liftStatus;
-    }
-
-    public Boolean getLightSwitch() {
-        return lightSwitch;
-    }
-
-    public void setLightSwitch(Boolean lightSwitch) {
-        this.lightSwitch = lightSwitch;
-    }
-
-    public int getCurrentWeightInLift() {
-        return currentWeightInLift;
-    }
-
-    public void setCurrentWeightInLift(int currentWeightInLift) {
-        this.currentWeightInLift = currentWeightInLift;
-    }
-
-    public Display getDisplay() {
-        return display;
-    }
-
-    public void setDisplay(Display display) {
-        this.display = display;
-    }
-
-    public int getId() {
+    public int getId(){
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int id){
+        this.id=id;
     }
 
-    public Boolean getFanSwitch() {
-        return fanSwitch;
+    public int getCurrentFloor(){
+        return currentFloor;
     }
 
-    public void setFanSwitch(Boolean fanSwitch) {
-        this.fanSwitch = fanSwitch;
+    public void setCurrentFloor(int currentFloor){
+        this.currentFloor=currentFloor;
     }
 
-    public Boolean getAlarmSwitch() {
-        return alarmSwitch;
+    public boolean openDoor(){
+        return true;
     }
 
-    public void setAlarmSwitch(Boolean alarmSwitch) {
-        this.alarmSwitch = alarmSwitch;
+    public boolean closeDoor(){
+        return true;
     }
 
-    public List<Button> getButtonList() {
-        return buttonList;
+    public LiftDirection moveUp(){
+        return LiftDirection.UP;
     }
 
-    public void setButtonList(List<Button> buttonList) {
-        this.buttonList = buttonList;
+    public LiftDirection moveDown(){
+        return LiftDirection.DOWN;
     }
 
-    public DoorStatus getDoorStatus() {
-        return doorStatus;
-    }
 
-    public void setDoorStatus(DoorStatus doorStatus) {
-        this.doorStatus = doorStatus;
-    }
 }
