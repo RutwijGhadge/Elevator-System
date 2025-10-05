@@ -1,7 +1,11 @@
 package Models;
 
 import Models.Constants.DirectionToGo;
+import Models.Constants.RequestStatus;
 import Models.Constants.RequestType;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Request {
     private int requestId;
@@ -9,10 +13,22 @@ public class Request {
     private int destinationFloor;
     private RequestType requestType;
     private DirectionToGo directionToGo;
+    private LocalDateTime localDateTime;
+    private RequestStatus requestStatus;
 
     public Request(int destinationFloor, RequestType requestType) {
         this.destinationFloor=destinationFloor;
         this.requestType=requestType;
+    }
+
+    public Request(int id , int sourceFloor , int destinationFloor, RequestType requestType,DirectionToGo directionToGo,RequestStatus requestStatus){
+        this.requestId=id;
+        this.sourceFloor=sourceFloor;
+        this.destinationFloor=destinationFloor;
+        this.requestType=requestType;
+        this.directionToGo=directionToGo;
+        this.requestStatus=requestStatus;
+        this.localDateTime=LocalDateTime.now();//Request Created At
     }
 
     public int getRequestId() {
@@ -61,5 +77,13 @@ public class Request {
 
     public boolean isDropOffRequest(){
         return RequestType.DROPOFF.equals(getRequestType());
+    }
+
+    public RequestStatus getRequestStatus() {
+        return requestStatus;
+    }
+
+    public void setRequestStatus(RequestStatus requestStatus) {
+        this.requestStatus = requestStatus;
     }
 }

@@ -9,4 +9,6 @@ public interface RequestRepository {
     void deleteRequestById(int id);
     Request getRequestById(int id);
     List<Request> getAllRequests();
+    List<Request> getAllPendingRequests();
+    void updateRequest(Request request);
 }

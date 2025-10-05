@@ -13,6 +13,16 @@ public class Lift {
     private double capacity;
     private boolean doorStatus;
     private List<Request>requestList;//Internal Request (Executed from Inside the Lift)
+    private LiftStatus liftStatus;
+
+
+    public LiftStatus getLiftStatus() {
+        return liftStatus;
+    }
+
+    public void setLiftStatus(LiftStatus liftStatus) {
+        this.liftStatus = liftStatus;
+    }
 
     public int getId(){
         return id;

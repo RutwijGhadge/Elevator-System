@@ -1,5 +1,6 @@
 package Repository;
 
+import Models.Constants.RequestStatus;
 import Models.Request;
 import Exception.DuplicateRequestException;
 import Exception.RequestNotFoundException;
@@ -38,5 +39,25 @@ public class RequestRepositoryIMPL implements RequestRepository {
     @Override
     public List<Request> getAllRequests() {
         return new ArrayList<>(requestMap.values());
+    }
+
+    @Override
+    public List<Request>getAllPendingRequests(){
+        List<Request>requestList=getAllRequests();
+        List<Request>pendingRequests=new ArrayList<>();
+        for(Request request:requestList){
+            if(request.getRequestStatus().equals(RequestStatus.PENDING)){
+                pendingRequests.add(request);
+            }
+        }
+        return pendingRequests;
+    }
+
+    @Override
+    public void updateRequest(Request request) {
+        if(!requestMap.containsKey(request.getRequestId())){
+            throw new RequestNotFoundException("Request with id :"+request.getRequestId()+" Not Found");
+        }
+        requestMap.put(request.getRequestId(), request);
     }
 }
