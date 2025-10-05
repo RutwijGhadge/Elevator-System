@@ -27,3 +27,17 @@ Design an Elevator Control System for a building with multiple elevators.
     * Assume real-time operation: requests can come anytime.
     * Each elevator has a maximum capacity.
     * The system must ensure safety (e.g., door does not close when obstructed).
+
+
+# 🧩 System Flow Summary
+   * Button Pressed
+     * → ButtonService calls 
+      RequestService.createPickupRequest() / RequestService.createDropOffRequest()
+   * Request Created
+     * → Added to RequestRepository (Status PENDING).
+   * Scheduler Invoked
+     * → Picks best elevator (SchedulerService).
+     * Elevator Moves
+       * → ElevatorService updates elevator position.
+     * Trigger movement/lifecycle updates.
+       * → Update Request Status from Pending → Complete → Delete.
